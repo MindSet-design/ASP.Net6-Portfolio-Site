@@ -11,6 +11,7 @@ builder.Services.Configure<DbSettings>(
 builder.Services.AddSingleton<SurveyService>();
 
 builder.Services.AddRazorPages();
+builder.Services.AddHttpClient();
 
 //enableCORS
 builder.Services.AddCors(c =>

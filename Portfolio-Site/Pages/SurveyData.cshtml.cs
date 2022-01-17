@@ -5,8 +5,12 @@ namespace PortfolioSite.Pages
 {
     public class SurveyDataModel : PageModel
     {
+
         public void OnGet()
         {
+
         }
+
+
     }
 }

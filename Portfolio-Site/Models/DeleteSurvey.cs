@@ -8,7 +8,7 @@ namespace PortfolioSite.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public String? Id { get; set; }
+        public String? Id { get; }
 
         [StringLength(20, ErrorMessage = "password length must be under 20 characters")]
         public string Password { get; set; }

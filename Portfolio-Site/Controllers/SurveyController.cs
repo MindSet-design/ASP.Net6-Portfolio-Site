@@ -16,21 +16,8 @@ namespace PortfolioSite.Controllers
         }
 
         [HttpGet]
-        public async Task<List<Survey>> Get()=>
-            await _surveyService.GetAsync();
-
-        //[HttpGet("{id:length(24)}")]
-        //public async Task<ActionResult<Survey>> Get(string id)
-        //{
-        //    var survey = await _surveyService.GetAsync(id);
-
-        //    if (survey is null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return survey;
-        //}
+        public async Task<List<Survey>> Get() =>
+            await _surveyService.GetAsync(); 
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -39,7 +26,7 @@ namespace PortfolioSite.Controllers
         {
             await _surveyService.CreateAsync(newSurvey);
 
-            return CreatedAtAction(nameof(Get), new { id = newSurvey.Id }, newSurvey);
+            return NoContent();
         }
 
         [HttpPut]
@@ -52,7 +39,7 @@ namespace PortfolioSite.Controllers
                 return NotFound();
             }
 
-            updatedSurvey.Id = survey.Id;
+           // updatedSurvey.Id = survey.Id;
 
             await _surveyService.UpdateAsync(updatedSurvey);
 
