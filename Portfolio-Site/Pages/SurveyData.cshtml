@@ -2,17 +2,28 @@
 @model PortfolioSite.Pages.SurveyDataModel
 @{
 }
-@section scripts{
-<script type="text/javascript">
-$.get( "/api/survey", function() {})
-.done(function(data){   
-    $.each(data , function(index, survey){
-        console.log("id: "+survey.id)
-    }); 
-})
-.fail(function(status){alert("error: " + status);});
-</script>
-}
+
+<div class="card-deck">
+    @foreach(var survey in @Model.Surveys)
+    {
+        <div id="card" class="card m-3">
+            <div class="card-header">
+                <h2>@survey.Company, @survey.Position</h2>
+            </div>
+            <div class="card-body">
+                <h1>@survey.Country, @survey.Province, @survey.City</h1>
+                <h1>@survey.Interest</h1>
+                <p>@survey.Comments</p>
+            </div>
+            <div class="card-footer text-center">
+                <a href="#" class="btn-primary btn-primary">View</a>
+                <a href="#" class="btn-primary btn-primary">Edit</a>
+                <a href="#" class="btn-primary btn-danger">Delete</a>
+            
+            </div>
+        </div>
+    }
+</div>
 
 
 
