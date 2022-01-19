@@ -11,6 +11,6 @@ namespace PortfolioSite.Models
         public String? Id { get; set; }
 
         [StringLength(20, ErrorMessage = "password length must be under 20 characters")]
-        public string Password { get; set; }
+        public string? Password { get; set; }
     }
 }

@@ -28,6 +28,8 @@ namespace PortfolioSite.Services
         public async Task<Survey?> GetAsync(string id, string password) =>
             await _collection.Find(x => x.Id == id & x.Password == password).FirstOrDefaultAsync();
 
+        public async Task<Survey?> GetAsync(string id) =>
+            await _collection.Find(x => x.Id == id).Project<Survey>(Builders<Survey>.Projection.Exclude(x => x.Password)).FirstOrDefaultAsync();
         public async Task CreateAsync(Survey newSurvey) =>
             await _collection.InsertOneAsync(newSurvey);
 

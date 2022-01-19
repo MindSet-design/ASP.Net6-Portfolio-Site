@@ -19,6 +19,19 @@ namespace PortfolioSite.Controllers
         public async Task<List<Survey>> Get() =>
             await _surveyService.GetAsync(); 
 
+        [HttpGet("{id:length(24)}") ]
+        public async Task<ActionResult<Survey>> Get(string id)
+        {
+            var survey = await _surveyService.GetAsync(id);
+
+            if (survey is null)
+            {
+                return NotFound();
+            }
+
+            return survey;
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -29,25 +42,25 @@ namespace PortfolioSite.Controllers
             return NoContent();
         }
 
+        //[HttpPut]
+        //public async Task<IActionResult> Update(Survey updatedSurvey)
+        //{
+        //    var survey = await _surveyService.GetAsync(updatedSurvey.Id, updatedSurvey.Password);
+
+        //    if (survey is null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //   updatedSurvey.Id = survey.Id;
+
+        //    await _surveyService.UpdateAsync(updatedSurvey);
+
+        //    return NoContent();
+        //}
+
         [HttpPut]
-        public async Task<IActionResult> Update(Survey updatedSurvey)
-        {
-            var survey = await _surveyService.GetAsync(updatedSurvey.Id, updatedSurvey.Password);
-
-            if (survey is null)
-            {
-                return NotFound();
-            }
-
-           // updatedSurvey.Id = survey.Id;
-
-            await _surveyService.UpdateAsync(updatedSurvey);
-
-            return NoContent();
-        }
-
-        [HttpDelete]
-        public async Task<IActionResult> delete(DeleteSurvey delete)
+        public async Task<IActionResult> Delete(DeleteSurvey delete)
         {
             var survey = await _surveyService.GetAsync(delete.Id,delete.Password);
 
