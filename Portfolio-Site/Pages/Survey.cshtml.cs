@@ -27,7 +27,7 @@ namespace PortfolioSite.Pages
             {
                 var json = JsonConvert.SerializeObject(Survey);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _client.PostAsync("http://localhost:5193/api/survey", data);
+                var response = await _client.PostAsync("https://portfolio-site20220119202713.azurewebsites.net", data);
                 if (response.IsSuccessStatusCode)
                 {
                     return Redirect("/surveydata");
