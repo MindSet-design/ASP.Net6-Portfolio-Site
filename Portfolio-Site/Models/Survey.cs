@@ -11,34 +11,28 @@ namespace PortfolioSite.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public String? Id { get; set; }
 
-        [Required(ErrorMessage = "A company name is requiered")]
-        [StringLength(56, ErrorMessage = "Sorry your name was to long")]
+        [Required, MaxLength(56)]
         public string? Company { get; set; }
 
-        [Required(ErrorMessage = "A job position  is requiered")]
-        [StringLength(56, ErrorMessage = "Sorry your name was to long")]
+        [Required, MaxLength(56)]
         public string? Position { get; set; }
 
-        [Required(ErrorMessage = "A city is requiered")]
-        [StringLength(56, ErrorMessage = "Sorry your name was to long")]
+        [Required, MaxLength(56)]
         public string? City { get; set; }
 
-        [Required(ErrorMessage = "A province/state is requiered")]
-        [StringLength(56, ErrorMessage = "Sorry your name was to long")]
+        [Required, MaxLength(56)]
         public string? Province { get; set; }
 
-        [Required(ErrorMessage = "A country is requiered")]
-        [StringLength(56, ErrorMessage = "Sorry your name was to long")]
+        [Required, MaxLength(56)]
         public string? Country { get; set; }
 
-        [Required(ErrorMessage = "An interest level is requiered")]
-        [StringLength(15, ErrorMessage = "wtf did you send")]
+        [Required, MaxLength(15)]
         public string? Interest { get; set; }
 
         [StringLength(250, ErrorMessage = "Sorry your message was to long")]
         public string? Comments { get; set; }
 
-        [StringLength(20, ErrorMessage = "password length must be under 20 characters")]
+        [Required,MaxLength(20)]
         public string? Password { get; set; }
 
     }

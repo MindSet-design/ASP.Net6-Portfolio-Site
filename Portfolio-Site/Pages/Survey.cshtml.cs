@@ -22,13 +22,20 @@ namespace PortfolioSite.Pages
         public Survey Survey { get; set; }  
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+
+            if (ModelState.IsValid)
             {
-                return Page();
+                var json = JsonConvert.SerializeObject(Survey);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _client.PostAsync("http://localhost:5193/api/survey", data);
+                if (response.IsSuccessStatusCode)
+                {
+                    return Redirect("/surveydata");
+                }
+                else
+                    return Page();
             }
-            var json = JsonConvert.SerializeObject(Survey);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _client.PostAsync("http://localhost:5193/api/survey",data);
+
             return Page();
         }
     }

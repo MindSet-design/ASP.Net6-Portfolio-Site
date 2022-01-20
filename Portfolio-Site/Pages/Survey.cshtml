@@ -6,9 +6,8 @@
 
 <form class="d-flex align-items-center flex-column"  method="post">
     <fieldset class="text-light">
-
         <!--Personal information-->
-
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <!--Company Input-->
         <div class="mb-3">
             <legend class="form-label">Company</legend>           
@@ -16,9 +15,8 @@
                     placeholder="Company"
                     asp-for="Survey.Company"                 
                     name="Company"
-                    type="text"
-                    value="" />
-            <br />
+                    type="text" 
+                    required>
         </div>
         <!--Position Input-->
         <div class="mb-3">
@@ -28,8 +26,7 @@
                     asp-for="Survey.Position"
                     name="Position"
                     type="text"
-                    value="" />
-            <br />
+                    required>
         </div>
         <!--City Input-->
         <div class="mb-3">
@@ -39,8 +36,8 @@
                     asp-for="Survey.City"
                     name="City"
                     type="text"
-                    value="" />
-            <br />
+                    required>
+            <span asp-validation-for="Survey.City" class="text-danger" ></span>
         </div>
         <!--Province/State Input-->
         <div class="mb-3">
@@ -50,8 +47,8 @@
                     asp-for="Survey.Province"
                     name="Province"
                     type="text"
-                    value="" />
-            <br />
+                    required>
+            <span asp-validation-for="Survey.Province" class="text-danger" ></span>
         </div>
         <!--Country Input-->
         <div class="mb-3">
@@ -61,8 +58,8 @@
                     asp-for="Survey.Country"
                     name="Country"
                     type="text"
-                    value="" />
-            <br />
+                    required>
+            <span asp-validation-for="Survey.Country" class="text-danger" ></span>
         </div>
 
 
@@ -76,7 +73,8 @@
                                 asp-for="Survey.Interest"
                                 name="Interest"
                                 type="radio"
-                                value="very string" />
+                                value="very strong"
+                                required>
                         <label htmlFor="very strong">very strong</label>
                     </div>
              </div>
@@ -86,7 +84,7 @@
                             asp-for="Survey.Interest"
                             name="Interest"
                             type="radio"
-                            value="strong" />
+                            value="strong" >
                     <label htmlFor="strong">strong</label>
                 </div>
                 <div class="form-check">
@@ -95,7 +93,7 @@
                             asp-for="Survey.Interest"
                             name="Interest"
                             type="radio"
-                            value="neutral" />
+                            value="neutral" >
                     <label htmlFor="neutral">neutral</label>
                 </div>
                 <div class="form-check">
@@ -104,7 +102,7 @@
                             asp-for="Survey.Interest"
                             name="Interest"
                             type="radio"
-                            value="weak" />
+                            value="weak" >
                     <label htmlFor="weak">weak</label>
                 </div>
                 <div class="form-check">
@@ -113,10 +111,9 @@
                             asp-for="Survey.Interest"
                             name="Interest"
                             type="radio"
-                            value="very weak" />
+                            value="very weak" >
                     <label htmlFor="very weak">very weak</label>
                 </div>
-          
         </fieldset>
         <!--Comments Input-->
         <legend class="form-lable">Comments</legend>
@@ -129,8 +126,7 @@
                 type="text"
                 rows="4"
                 cols="50"
-                maxlength="250"
-                value="">
+                maxlength="250">
             </textarea>
         </div>
             <!--Passsword Input-->
@@ -140,9 +136,8 @@
                     asp-for="Survey.Password"
                     name="Password"
                     type="text"
-                    maxlength="20"
-                    value="" />
-            <br />
+                    maxlength="20" 
+                    required>
         <input class="btn btn-primary mt-3" type="submit" value="Submit" />
     </fieldset>  
 </form>
