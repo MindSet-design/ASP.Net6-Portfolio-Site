@@ -19,7 +19,7 @@ namespace PortfolioSite.Pages
         public List<Survey>? Surveys { get; set; }
         public async  Task<IActionResult> OnGetAsync()
         {
-            var response = await _client.GetAsync("https://portfolio-site20220119202713.azurewebsites.net");
+            var response = await _client.GetAsync("https://nicholas-nowosad-portfolio-site.azurewebsites.net/api/survey");
             var result = await response.Content.ReadAsStringAsync();
             var json = JsonConvert.DeserializeObject<List<Survey>>(result);
             Surveys = json;
@@ -32,7 +32,7 @@ namespace PortfolioSite.Pages
         {
             var json = JsonConvert.SerializeObject(Delete);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _client.PutAsync("https://portfolio-site20220119202713.azurewebsites.net", data);
+            var response = await _client.PutAsync("https://nicholas-nowosad-portfolio-site.azurewebsites.net/api/survey", data);
             return Redirect("/SurveyData");
         }
 

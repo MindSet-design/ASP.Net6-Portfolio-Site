@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/Nicholas-Nowosad-Portfolio-Siteapi/apis/MongoDb-Portfolio-Site-API",
+      "type": "apis.azure"
+    }
+  }
+}
