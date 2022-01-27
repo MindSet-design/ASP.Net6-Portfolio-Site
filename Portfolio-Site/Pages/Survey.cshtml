@@ -3,10 +3,10 @@
 @{
 }
 
-<section class="container-fluid d-flex justify-content-center">
-    <form class="d-flex align-items-center justify-content-center flex-column w-50"  method="post">
+<section class="container d-flex justify-content-center">
+    <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <fieldset class="text-light">
+        <fieldset class="form-group text-light" style="">
             <!--Personal information-->
             <!--Company Input-->
             <div class="mb-3">
@@ -125,7 +125,6 @@
                     name="Comments"
                     type="text"
                     rows="4"
-                    cols="50"
                     maxlength="250">
                 </textarea>
             </div>
