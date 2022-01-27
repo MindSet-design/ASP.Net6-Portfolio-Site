@@ -2,37 +2,37 @@
 @model PortfolioSite.Pages.SurveyDataModel
 @{
 }
-
-<div class="card-group d-flex justify-content-center">
-    @foreach(var survey in @Model.Surveys)
-    {
-        <div id="card" class="card m-3 bg-dark text-light" style="min-width:18rem; max-width:30.5%;">
-            <div class="card-header">
-                <h2>@survey.Company, @survey.Position</h2>
+<section class="container-fluid d-flex justify-content-center">
+    <div class="card-group">
+        @foreach(var survey in @Model.Surveys)
+        {
+            <div id="card" class="card m-3 bg-dark text-light" style="min-width:18rem;">
+                <div class="card-header">
+                    <h2>@survey.Company, @survey.Position</h2>
+                </div>
+                <div class="card-body">
+                    <h1>@survey.City, @survey.Province, @survey.Country</h1>
+                    <h5>Interest: @survey.Interest</h5>
+                    <H5>Comments:</H5>
+                    <p>@survey.Comments</p>
+                </div>
+                <div class="card-footer text-center"> 
+                    <form method="post">
+                        <legend class="form-lable">Password</legend>
+                        <input class="invisible fixed-top" name="Id" asp-for="Delete.Id" value="@survey.Id"/>
+                        <input class="form-control"
+                                placeholder="Password"
+                                asp-for="Delete.Password"
+                                name="Password"
+                                type="text"
+                                maxlength="20"
+                                value="">
+                        <br />
+                        <input  class=" btn btn-danger" type="submit" value="delete"/>  
+                    </form>
+                </div>
             </div>
-            <div class="card-body">
-                <h1>@survey.City, @survey.Province, @survey.Country</h1>
-                <h5>Interest: @survey.Interest</h5>
-                <H5>Comments:</H5>
-                <p>@survey.Comments</p>
-            </div>
-            <div class="card-footer text-center"> 
-                <form method="post">
-                    <legend class="form-lable">Password</legend>
-                    <input class="invisible fixed-top" name="Id" asp-for="Delete.Id" value="@survey.Id"/>
-                    <input class="form-control"
-                            placeholder="Password"
-                            asp-for="Delete.Password"
-                            name="Password"
-                            type="text"
-                            maxlength="20"
-                            value="">
-                    <br />
-                    <input  class=" btn btn-danger" type="submit" value="delete"/>  
-                </form>
-            </div>
-        </div>
-    }
-</div>
-
+        }
+    </div>
+</section>
 
