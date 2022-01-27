@@ -3,141 +3,142 @@
 @{
 }
 
-
-<form class="d-flex align-items-center flex-column"  method="post">
-    <fieldset class="text-light">
-        <!--Personal information-->
+<section class="container-fluid d-flex justify-content-center">
+    <form class="d-flex align-items-center justify-content-center flex-column w-50"  method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <!--Company Input-->
-        <div class="mb-3">
-            <legend class="form-label">Company</legend>           
-            <input class="form-control"
-                    placeholder="Company"
-                    asp-for="Survey.Company"                 
-                    name="Company"
-                    type="text" 
-                    required>
-        </div>
-        <!--Position Input-->
-        <div class="mb-3">
-            <legend class="form-label">Position</legend>
-            <input class="form-control"
-                    placeholder="Position"
-                    asp-for="Survey.Position"
-                    name="Position"
-                    type="text"
-                    required>
-        </div>
-        <!--City Input-->
-        <div class="mb-3">
-            <legend class="form-label">City</legend>
-            <input class="form-control"
-                    placeholder="City"
-                    asp-for="Survey.City"
-                    name="City"
-                    type="text"
-                    required>
-            <span asp-validation-for="Survey.City" class="text-danger" ></span>
-        </div>
-        <!--Province/State Input-->
-        <div class="mb-3">
-            <legend class="form-label">Province/State</legend>
-            <input class="form-control"
-                    placeholder="Province/State"
-                    asp-for="Survey.Province"
-                    name="Province"
-                    type="text"
-                    required>
-            <span asp-validation-for="Survey.Province" class="text-danger" ></span>
-        </div>
-        <!--Country Input-->
-        <div class="mb-3">
-            <legend class="form-label">Country</legend>
-            <input class="form-control"
-                    placeholder="Country"
-                    asp-for="Survey.Country"
-                    name="Country"
-                    type="text"
-                    required>
-            <span asp-validation-for="Survey.Country" class="text-danger" ></span>
-        </div>
+        <fieldset class="text-light">
+            <!--Personal information-->
+            <!--Company Input-->
+            <div class="mb-3">
+                <legend class="form-label">Company</legend>           
+                <input class="form-control"
+                        placeholder="Company"
+                        asp-for="Survey.Company"                 
+                        name="Company"
+                        type="text" 
+                        required>
+            </div>
+            <!--Position Input-->
+            <div class="mb-3">
+                <legend class="form-label">Position</legend>
+                <input class="form-control"
+                        placeholder="Position"
+                        asp-for="Survey.Position"
+                        name="Position"
+                        type="text"
+                        required>
+            </div>
+            <!--City Input-->
+            <div class="mb-3">
+                <legend class="form-label">City</legend>
+                <input class="form-control"
+                        placeholder="City"
+                        asp-for="Survey.City"
+                        name="City"
+                        type="text"
+                        required>
+                <span asp-validation-for="Survey.City" class="text-danger" ></span>
+            </div>
+            <!--Province/State Input-->
+            <div class="mb-3">
+                <legend class="form-label">Province/State</legend>
+                <input class="form-control"
+                        placeholder="Province/State"
+                        asp-for="Survey.Province"
+                        name="Province"
+                        type="text"
+                        required>
+                <span asp-validation-for="Survey.Province" class="text-danger" ></span>
+            </div>
+            <!--Country Input-->
+            <div class="mb-3">
+                <legend class="form-label">Country</legend>
+                <input class="form-control"
+                        placeholder="Country"
+                        asp-for="Survey.Country"
+                        name="Country"
+                        type="text"
+                        required>
+                <span asp-validation-for="Survey.Country" class="text-danger" ></span>
+            </div>
 
 
-        <!--intrest level Input-->
-        <fieldset class="form-group">
-            <legend class="form-label">Interest Level</legend>
-            <div class="col-sm-10">
+            <!--intrest level Input-->
+            <fieldset class="form-group">
+                <legend class="form-label">Interest Level</legend>
+                <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input"
+                                    id="very strong"
+                                    asp-for="Survey.Interest"
+                                    name="Interest"
+                                    type="radio"
+                                    value="very strong"
+                                    required>
+                            <label htmlFor="very strong">very strong</label>
+                        </div>
+                 </div>
                     <div class="form-check">
                         <input class="form-check-input"
-                                id="very strong"
+                                id="strong"
                                 asp-for="Survey.Interest"
                                 name="Interest"
                                 type="radio"
-                                value="very strong"
-                                required>
-                        <label htmlFor="very strong">very strong</label>
+                                value="strong" >
+                        <label htmlFor="strong">strong</label>
                     </div>
-             </div>
-                <div class="form-check">
-                    <input class="form-check-input"
-                            id="strong"
-                            asp-for="Survey.Interest"
-                            name="Interest"
-                            type="radio"
-                            value="strong" >
-                    <label htmlFor="strong">strong</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input"
-                            id="neutral"
-                            asp-for="Survey.Interest"
-                            name="Interest"
-                            type="radio"
-                            value="neutral" >
-                    <label htmlFor="neutral">neutral</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input"
-                            id="weak"
-                            asp-for="Survey.Interest"
-                            name="Interest"
-                            type="radio"
-                            value="weak" >
-                    <label htmlFor="weak">weak</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input"
-                            id="very weak"
-                            asp-for="Survey.Interest"
-                            name="Interest"
-                            type="radio"
-                            value="very weak" >
-                    <label htmlFor="very weak">very weak</label>
-                </div>
-        </fieldset>
-        <!--Comments Input-->
-        <legend class="form-lable">Comments</legend>
-        <div>
-            <textarea 
-                placeholder="comments"
-                id="Comments"
-                asp-for="Survey.Comments"
-                name="Comments"
-                type="text"
-                rows="4"
-                cols="50"
-                maxlength="250">
-            </textarea>
-        </div>
-            <!--Passsword Input-->
-            <legend class="form-lable">Password</legend>
-            <input class="form-control"
-                    placeholder="Password"
-                    asp-for="Survey.Password"
-                    name="Password"
+                    <div class="form-check">
+                        <input class="form-check-input"
+                                id="neutral"
+                                asp-for="Survey.Interest"
+                                name="Interest"
+                                type="radio"
+                                value="neutral" >
+                        <label htmlFor="neutral">neutral</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input"
+                                id="weak"
+                                asp-for="Survey.Interest"
+                                name="Interest"
+                                type="radio"
+                                value="weak" >
+                        <label htmlFor="weak">weak</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input"
+                                id="very weak"
+                                asp-for="Survey.Interest"
+                                name="Interest"
+                                type="radio"
+                                value="very weak" >
+                        <label htmlFor="very weak">very weak</label>
+                    </div>
+            </fieldset>
+            <!--Comments Input-->
+            <legend class="form-lable">Comments</legend>
+            <div>
+                <textarea 
+                    placeholder="comments"
+                    id="Comments"
+                    asp-for="Survey.Comments"
+                    name="Comments"
                     type="text"
-                    maxlength="20" 
-                    required>
-        <input class="btn btn-primary mt-3" type="submit" value="Submit" />
-    </fieldset>  
-</form>
+                    rows="4"
+                    cols="50"
+                    maxlength="250">
+                </textarea>
+            </div>
+                <!--Passsword Input-->
+                <legend class="form-lable">Password</legend>
+                <input class="form-control"
+                        placeholder="Password"
+                        asp-for="Survey.Password"
+                        name="Password"
+                        type="text"
+                        maxlength="20" 
+                        required>
+            <input class="btn btn-primary mt-3" type="submit" value="Submit" />
+        </fieldset>  
+    </form>
+</section>

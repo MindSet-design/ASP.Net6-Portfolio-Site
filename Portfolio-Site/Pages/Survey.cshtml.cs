@@ -30,7 +30,7 @@ namespace PortfolioSite.Pages
                 var response = await _client.PostAsync("https://nicholas-nowosad-portfolio-site.azurewebsites.net/api/survey", data);
                 if (response.IsSuccessStatusCode)
                 {
-                    return Redirect("/surveydata");
+                    return Redirect("/PostSuccess");
                 }
                 else
                     return Page();
